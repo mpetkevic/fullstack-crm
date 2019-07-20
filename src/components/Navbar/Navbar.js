@@ -7,21 +7,24 @@ import './Navbar.scss';
 
 class Navbar extends Component {
   render() {
-    const {isAuth} = this.props.auth;
+    const {isAuth, email, role} = this.props.auth;
     const {onLogout} = this.props;
     return (
         <div className='Navbar'>
           <Link to='/' className='Logo-link'>Full JS CRM</Link>
           <nav>
             <ul>
-              {isAuth ? <NavLink to='/users' className='nav-link' activeClassName='active-link'>Users</NavLink> : null}
+              {role === 'ADMIN' ? <NavLink to='/users' className='nav-link' activeClassName='active-link'>Users</NavLink> : null}
               <NavLink to='/products' className='nav-link' activeClassName='active-link'>Products</NavLink>
               <NavLink to='/orders' className='nav-link' activeClassName='active-link'>Orders</NavLink>
             </ul>
           </nav>
           <nav>
             <ul>
-              <Link to='/account' className='nav-link'>demo@demo.com</Link>
+              <Link
+                  to={isAuth ? '/account' : '/register'}
+                  className='nav-link'
+              >{isAuth ? email : 'Register'}</Link>
               <Link
                   to={isAuth ? '/' : '/login'}
                   className='nav-link'

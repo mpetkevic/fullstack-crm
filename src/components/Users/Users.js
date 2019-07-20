@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
 
 class Users extends Component {
-  state = {
-    auth: false
-  }
+
   render() {
-    const {auth} = this.state;
-    if(!auth) return <Redirect to='/'/>
+    const {isAuth} = this.props.auth;
+    if(!isAuth) return <Redirect to='/'/>
     return (
         <div>
           Users Component
@@ -16,4 +15,10 @@ class Users extends Component {
   }
 }
 
-export default Users;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(Users);

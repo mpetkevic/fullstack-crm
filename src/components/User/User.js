@@ -1,13 +1,24 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
 
 class User extends Component {
+
   render() {
+    const {isAuth} = this.props.auth;
+    if(!isAuth) return <Redirect to='/'/>
     return (
         <div>
-          User Component
+          Users Component
         </div>
     );
   }
 }
 
-export default User;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(User);

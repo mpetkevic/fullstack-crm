@@ -2,3 +2,10 @@
 
 export const AUTH_USER = 'AUTH_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+
+// LOGIN types
+
+export const LOGIN_INPUT_CHANGE = 'LOGIN_INPUT_CHANGE';
+export const LOGIN_FORM_SUCCESS = 'LOGIN_FORM_SUCCESS';
+export const LOGIN_FORM_ERROR = 'LOGIN_FORM_ERROR';
+export const LOGIN_FORM_LOADING = 'LOGIN_FORM_LOADING';
