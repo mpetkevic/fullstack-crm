@@ -1,0 +1,39 @@
+.Navbar {
+  width: 100%;
+  height: auto;
+  background-color: #353538;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  color: white;
+
+  .Logo-link {
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    transition: color 0.5s;
+
+    &:hover {
+      color: #bcbcbf;
+    }
+  }
+
+  .border {
+    border: 2px solid white;
+  }
+
+  .nav-link {
+    color: white;
+    margin: 0 10px;
+
+    &:hover {
+      color: #bcbcbf;
+    }
+  }
+
+  .active-link {
+    color: #bcbcbf;
+    text-decoration: underline;
+  }
+}
