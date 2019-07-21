@@ -5,11 +5,21 @@ const User = require('./../dbmodels/user');
 const router = express.Router();
 
 router.post('/login', (req, res) => {
-  const user = req.body;
-  if (user.email === 'admin@demo.com') {
-    user.role = 'ADMIN';
-  }
-  res.json(user);
+  const userInfo= req.body;
+  User
+    .findAll({
+      where: {
+        email: userInfo.email
+      }
+  })
+    .then(result => {
+      if(result.length > 0){
+        res.status(200).send(result[0].dataValues)
+      } else {
+        res.status(400).send({error: 'Wrong Credentials. Try again'});
+      }
+    })
+    .catch(err => console.log(err));
 });
 
 router.post('/register', (req, res) => {

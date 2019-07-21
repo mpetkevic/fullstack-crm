@@ -18,12 +18,13 @@ export const onLoginSubmit = (user, history) => (dispatch) => {
 
   axios.post(url, loginJSON)
       .then(res => {
-        console.log(res.data);
         dispatch(onLoginSuccess());
         dispatch(authUser(res.data));
         history.push('/');
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        dispatch(onLoginError(err.response.data.error))
+      });
 
 
 };
