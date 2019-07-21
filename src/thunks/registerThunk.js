@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {onRegisterLoading, onRegisterError, onRegisterSuccess} from './../actions/registerActions';
 
 export const onRegisterSubmit = (user, history) => (dispatch) => {
@@ -9,11 +10,20 @@ export const onRegisterSubmit = (user, history) => (dispatch) => {
     return dispatch(onRegisterError('Passwords doesn\'t match'))
   }
 
+  const url = 'http://localhost:9000/api/register';
+
   const registerJSON = {
     email: user.email,
     password: user.password
   };
 
-  dispatch(onRegisterSuccess());
-  history.push('/login')
+  axios.post(url, registerJSON)
+      .then(res => {
+        console.log('Registration successful');
+        console.log(res.data);
+        dispatch(onRegisterSuccess());
+        history.push('/login');
+      })
+      .catch(err => console.log(err));
+
 };
