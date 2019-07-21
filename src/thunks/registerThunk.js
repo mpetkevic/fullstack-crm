@@ -18,12 +18,12 @@ export const onRegisterSubmit = (user, history) => (dispatch) => {
   };
 
   axios.post(url, registerJSON)
-      .then(res => {
-        console.log('Registration successful');
-        console.log(res.data);
+      .then(() => {
         dispatch(onRegisterSuccess());
         history.push('/login');
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        dispatch(onRegisterError(err.response.data === 23505 ? 'Email already exists': 'Server Error'))
+      });
 
 };

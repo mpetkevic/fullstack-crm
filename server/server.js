@@ -3,6 +3,8 @@ const environment = require('custom-env');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const database = require('./config/database');
+
 const userRoutes = require('./routes/userRoutes');
 
 environment.env('local');
@@ -19,5 +21,11 @@ app.use('/api', userRoutes);
 app.get('/', (req,res) => {
   res.send('App is working');
 });
+
+
+database.sync()
+    .then(result => console.log('DB working!!!'))
+    .catch(err => console.log(err));
+
 
 app.listen(port, () => console.log(`Server is working on port: ${port}`))
