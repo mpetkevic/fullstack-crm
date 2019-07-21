@@ -8,6 +8,7 @@ import Orders from './components/Orders/Orders';
 import User from './components/User/User';
 import Users from './components/Users/Users';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route path='/account' component={User}/>
               <Route path='/users' component={Users}/>
               <Route path='/login' component={Login}/>
+              <Route path='/register' component={Register}/>
             </Switch>
           </Fragment>
         </BrowserRouter>

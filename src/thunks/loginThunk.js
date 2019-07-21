@@ -6,6 +6,15 @@ export const onLoginSubmit = (user, history) => (dispatch) => {
   if(user.email === '' || user.password === '') {
     return dispatch(onLoginError('Please fill all fields'))
   }
+
+  const loginJSON = {
+    email: user.email,
+    password: user.password
+  }
+
+  console.log(loginJSON);
+
   dispatch(onLoginSuccess());
   dispatch(authUser(user));
-}
+  history.push('/');
+};
