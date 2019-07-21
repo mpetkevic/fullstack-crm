@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {authUser} from "../actions/authActions";
 import {onLoginLoading, onLoginError, onLoginSuccess} from './../actions/loginActions'
 
@@ -7,14 +9,21 @@ export const onLoginSubmit = (user, history) => (dispatch) => {
     return dispatch(onLoginError('Please fill all fields'))
   }
 
+  const url = 'http://localhost:9000/api/login';
+
   const loginJSON = {
     email: user.email,
     password: user.password
   }
 
-  console.log(loginJSON);
+  axios.post(url, loginJSON)
+      .then(res => {
+        console.log(res);
+        dispatch(onLoginSuccess());
+        dispatch(authUser(user));
+        history.push('/');
+      })
+      .catch(err => console.log(err));
 
-  dispatch(onLoginSuccess());
-  dispatch(authUser(user));
-  history.push('/');
+
 };
