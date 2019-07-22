@@ -9,7 +9,7 @@ export const onLoginSubmit = (user, history) => (dispatch) => {
     return dispatch(onLoginError('Please fill all fields'))
   }
 
-  const url = 'http://localhost:9000/api/login';
+  const url = 'http://localhost:9000/api/user/login';
 
   const loginJSON = {
     email: user.email,

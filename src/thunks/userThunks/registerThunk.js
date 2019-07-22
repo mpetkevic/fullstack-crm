@@ -10,7 +10,7 @@ export const onRegisterSubmit = (user, history) => (dispatch) => {
     return dispatch(onRegisterError('Passwords doesn\'t match'))
   }
 
-  const url = 'http://localhost:9000/api/register';
+  const url = 'http://localhost:9000/api/user/register';
 
   const registerJSON = {
     email: user.email,

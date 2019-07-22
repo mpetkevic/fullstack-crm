@@ -16,12 +16,13 @@ export const onUpdate = (user, history) => (dispatch) => {
     password: user.password
   }
 
-  const url = 'http://localhost:9000/api/update';
+  const url = 'http://localhost:9000/api/user/update';
 
   axios.put(url, updateJSON)
     .then(() => {
+      dispatch(onUpdateSuccess());
       onLogoutSubmit();
       history.push('/login');
     })
-    .catch(err => dispatch(onUpdateError('Server Error')));
+    .catch(() => dispatch(onUpdateError('Server Error')));
 }
