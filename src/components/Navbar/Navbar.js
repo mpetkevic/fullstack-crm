@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
-import {onLogoutSubmit} from "../../thunks/logoutThunk";
+import {onLogoutSubmit} from "./../../thunks/userThunks/logoutThunk";
 
 import './Navbar.scss';
 

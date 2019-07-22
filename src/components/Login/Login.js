@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {onLoginSubmit} from "../../thunks/loginThunk";
-import {onInputChange} from "../../actions/loginActions";
+import {onLoginSubmit} from "./../../thunks/userThunks/loginThunk";
+import {onInputChange} from "./../../actions/userActions/loginActions";
 import Loader from './../Loader/Loader';
 import './Login.scss';
 

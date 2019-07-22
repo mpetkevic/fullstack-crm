@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Loader from './../Loader/Loader';
 import {connect} from 'react-redux';
-import {onInputChange} from '../../actions/registerActions';
-import {onRegisterSubmit} from '../../thunks/registerThunk';
+import {onInputChange} from './../../actions/userActions/registerActions';
+import {onRegisterSubmit} from './../../thunks/userThunks/registerThunk';
 import './Register.scss';
 
 class Register extends Component {

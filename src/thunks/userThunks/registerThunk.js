@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {onRegisterLoading, onRegisterError, onRegisterSuccess} from './../actions/registerActions';
+import {onRegisterLoading, onRegisterError, onRegisterSuccess} from '../../actions/userActions/registerActions';
 
 export const onRegisterSubmit = (user, history) => (dispatch) => {
   dispatch(onRegisterLoading());

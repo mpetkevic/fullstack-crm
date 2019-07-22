@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import {authUser} from "../actions/authActions";
-import {onLoginLoading, onLoginError, onLoginSuccess} from './../actions/loginActions'
+import {authUser} from "./../../actions/userActions/authActions";
+import {onLoginLoading, onLoginError, onLoginSuccess} from './../../actions/userActions/loginActions'
 
 export const onLoginSubmit = (user, history) => (dispatch) => {
   dispatch(onLoginLoading());
