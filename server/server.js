@@ -7,7 +7,7 @@ const database = require('./config/database');
 
 const userRoutes = require('./routes/userRoutes');
 
-environment.env('local');
+environment.env();
 
 const app = express();
 const port = process.env.PORT;

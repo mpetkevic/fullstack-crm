@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import {connect} from "react-redux";
+import {authUser} from './actions/userActions/authActions';
 
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
@@ -11,6 +13,13 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
 class App extends Component {
+  componentDidMount() {
+    const userInfo = localStorage.getItem('CRM-user-session');
+    if(userInfo) {
+      this.props.authUser(JSON.parse(userInfo));
+    }
+  }
+
   render() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -31,4 +40,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  authUser: (user) => dispatch(authUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(App);

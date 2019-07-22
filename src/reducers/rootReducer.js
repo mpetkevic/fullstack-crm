@@ -3,12 +3,14 @@ import authReducer from './userReducers/authReducer';
 import loginReducer from './userReducers/loginReducer';
 import registerReducer from './userReducers/registerReducer';
 import updateReducer from './userReducers/updateReducer';
+import getUsersReducer from './userReducers/getUsersReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   login: loginReducer,
   register: registerReducer,
-  update: updateReducer
+  update: updateReducer,
+  usersList: getUsersReducer
 })
 
 export default rootReducer;

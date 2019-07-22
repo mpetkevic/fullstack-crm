@@ -71,5 +71,11 @@ router.put('/update', (req, res) => {
   })
 });
 
+router.get('/all-users', (req,res) => {
+  User.findAll()
+    .then(result => res.send(result))
+    .catch(err => console.log(err))
+})
+
 
 module.exports = router;

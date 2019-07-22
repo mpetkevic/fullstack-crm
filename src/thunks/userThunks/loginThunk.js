@@ -20,6 +20,10 @@ export const onLoginSubmit = (user, history) => (dispatch) => {
       .then(res => {
         dispatch(onLoginSuccess());
         dispatch(authUser(res.data));
+        localStorage.setItem('CRM-user-session', JSON.stringify({
+          email: res.data.email,
+          role: res.data.role
+        }))
         history.push('/');
       })
       .catch(err => {
