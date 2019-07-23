@@ -1,0 +1,40 @@
+.Users {
+  padding: 20px;
+
+  h3{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .AddUser {
+    display: block;
+    margin: auto;
+    background-color: #353538;
+    color: white;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .UsersListItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    text-align: center;
+    width: 80%;
+    margin: 10px auto;
+    padding: 5px;
+
+    span {
+      font-weight: bold;
+
+    }
+
+    button {
+      background-color: #353538;
+      margin-left: 5px;
+      padding: 4px;
+      color: white;
+    }
+  }
+}

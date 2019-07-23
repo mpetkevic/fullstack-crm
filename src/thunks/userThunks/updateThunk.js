@@ -13,7 +13,8 @@ export const onUpdate = (user, history) => (dispatch) => {
 
   const updateJSON = {
     email: user.email,
-    password: user.password
+    password: user.password,
+    role: user.role
   }
 
   const url = 'http://localhost:9000/api/user/update';

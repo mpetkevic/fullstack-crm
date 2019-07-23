@@ -53,29 +53,51 @@ router.put('/update', (req, res) => {
   }).then(result => {
     bcrypt.hash(userInfo.password, 10)
       .then(hashed => {
-        res.send(hashed);
         User.update({
           email: userInfo.email,
           password: hashed,
-          role: userInfo.email === 'admin@admin.com' ? 'ADMIN' : 'USER'
+          role: userInfo.role
         }, {
           where: {
-            email: result.dataValues.email
+            email: result.email
           }
         })
           .then(result => res.status(200).send(result))
           .catch(err => {
-            res.status(400).send(err.parent.code)
+            res.status(400).send(err)
           });
       })
   })
+});
+
+router.put('/update-role', (req, res) => {
+  const userInfo = req.body;
+  User.update({
+    role: userInfo.role
+  }, {
+    where: {
+      email: userInfo.email
+    }
+  }).then(() => res.status(200).send('Role updated'))
+    .catch(err => console.log(err))
+});
+
+router.delete('/delete/:email', (req,res) => {
+  const userEmail = req.params.email;
+  User.destroy({
+    where: {
+      email: userEmail
+    }
+  }).then(result => {
+    res.status(200).send('User deleted')
+  }).catch(err => res.status(400).send(err))
 });
 
 router.get('/all-users', (req,res) => {
   User.findAll()
     .then(result => res.send(result))
     .catch(err => console.log(err))
-})
+});
 
 
 module.exports = router;
