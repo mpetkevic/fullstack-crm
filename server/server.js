@@ -6,6 +6,7 @@ const cors = require('cors');
 const database = require('./config/database');
 
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 environment.env();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/user', userRoutes);
+app.use('/api/product', productRoutes);
 
 app.get('/', (req,res) => {
   res.send('App is working');
