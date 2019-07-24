@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const addProduct = (product, history) => (dispatch) => {
   dispatch(addProductLoading());
-  if(product.name === '' || product.price === '' || product.description === '' && product.picture === '') {
+  if(product.name === '' || product.price === '' || product.description === '' || product.picture === '') {
     return dispatch(addProductError('Please fill all fields'));
   }
 
