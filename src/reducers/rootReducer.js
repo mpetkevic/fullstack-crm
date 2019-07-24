@@ -6,6 +6,7 @@ import updateReducer from './userReducers/updateReducer';
 import getUsersReducer from './userReducers/getUsersReducer';
 import getProductsReducer from './productReducers/getProductsReducer';
 import addProductReducer from './productReducers/addProductReducer';
+import editProductReducer from './productReducers/editProductReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   update: updateReducer,
   usersList: getUsersReducer,
   productsList: getProductsReducer,
-  addProduct: addProductReducer
+  addProduct: addProductReducer,
+  editProduct: editProductReducer
 })
 
 export default rootReducer;

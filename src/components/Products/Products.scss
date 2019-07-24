@@ -18,11 +18,13 @@
   .ProductsList {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 
     .Product {
       width: 30%;
       border: 1px solid black;
       padding: 10px;
+      margin-bottom: 10px;
 
       h5 {
         text-align: center;
