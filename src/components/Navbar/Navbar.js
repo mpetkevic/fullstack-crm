@@ -15,7 +15,7 @@ class Navbar extends Component {
           <nav>
             <ul>
               {role === 'ADMIN' ? <NavLink to='/users' className='nav-link' activeClassName='active-link'>Users</NavLink> : null}
-              <NavLink to='/products' className='nav-link' activeClassName='active-link'>Products</NavLink>
+              <NavLink exact to='/products' className='nav-link' activeClassName='active-link'>Products</NavLink>
               <NavLink to='/orders' className='nav-link' activeClassName='active-link'>Orders</NavLink>
             </ul>
           </nav>

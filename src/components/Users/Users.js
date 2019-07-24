@@ -21,10 +21,10 @@ class Users extends Component {
   }
 
   render() {
-    const {isAuth, email} = this.props.auth;
+    const {role, email} = this.props.auth;
     const {usersList} = this.props.usersList;
-    const {deleteUser} = this.props
-    if(!isAuth) return <Redirect to='/'/>
+    const {deleteUser} = this.props;
+    if(role !== 'ADMIN') return <Redirect to='/'/>
     const mappedUsers = usersList && usersList.map(user => {
       const changeRole = user.role === 'USER' ? 'ADMIN' : "USER";
       return (

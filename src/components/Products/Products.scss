@@ -1,0 +1,58 @@
+.Products {
+  padding: 20px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .AddProduct {
+    display: block;
+    margin: 0 auto 20px;
+    background-color: #353538;
+    color: white;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .ProductsList {
+    display: flex;
+    justify-content: space-around;
+
+    .Product {
+      width: 30%;
+      border: 1px solid black;
+      padding: 10px;
+
+      h5 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      img {
+        display: block;
+        width: 80%;
+        height: 100px;
+        margin: 0 auto 10px;
+      }
+
+      p {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .ActionButtons {
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+        margin: 10px auto;
+
+        button {
+          padding: 5px;
+          background-color: #353538;
+          color: white;
+        }
+      }
+    }
+  }
+}

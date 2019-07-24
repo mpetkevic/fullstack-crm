@@ -11,6 +11,7 @@ import User from './components/User/User';
 import Users from './components/Users/Users';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import AddProduct from './components/AddProduct/AddProduct';
 
 class App extends Component {
   componentDidMount() {
@@ -27,12 +28,13 @@ class App extends Component {
             <Navbar/>
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/products' component={Products}/>
+              <Route exact path='/products' component={Products}/>
               <Route path='/orders' component={Orders}/>
               <Route path='/account' component={User}/>
-              <Route path='/users' component={Users}/>
               <Route path='/login' component={Login}/>
               <Route path='/register' component={Register}/>
+              <Route path='/users' component={Users}/>
+              <Route exact path='/products/add-product' component={AddProduct}/>
             </Switch>
           </Fragment>
         </BrowserRouter>
